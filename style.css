@@ -20,7 +20,7 @@ body {
 }
 
 button {
-  padding: 15px 30px;
+  padding: 15px 32px;
   font-size: 18px;
   margin: 15px;
   border: none;
@@ -40,6 +40,32 @@ button {
   color: #ffd6e0;
 }
 
+/* FADE IN */
+.fade-in {
+  opacity: 0;
+  animation: fadeInSlow 3s ease forwards;
+}
+
+@keyframes fadeInSlow {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LOVE LINE */
+.love {
+  margin-top: 30px;
+  font-size: 26px;
+  color: #ffb6c1;
+  opacity: 0;
+  animation: fadeInSlow 3s ease forwards;
+}
+
 /* CONFETTI */
 .confetti {
   position: fixed;
@@ -55,3 +81,4 @@ button {
     opacity: 0;
   }
 }
+
