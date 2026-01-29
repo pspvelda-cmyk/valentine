@@ -22,14 +22,17 @@ function startGame() {
 }
 
 function loadQuestion() {
-  document.getElementById("question").innerText = questions[currentQuestion].text;
+  const questionEl = document.getElementById("question");
   const buttons = document.querySelectorAll(".options button");
+
+  questionEl.innerText = questions[currentQuestion].text;
   buttons[0].innerText = questions[currentQuestion].options[0];
   buttons[1].innerText = questions[currentQuestion].options[1];
 }
 
 function nextQuestion() {
   currentQuestion++;
+
   if (currentQuestion < questions.length) {
     loadQuestion();
   } else {
@@ -52,4 +55,16 @@ function yesClicked() {
 function launchConfetti() {
   for (let i = 0; i < 50; i++) {
     const confetti = document.createElement("div");
-    confetti.clas
+    confetti.classList.add("confetti");
+    confetti.innerText = ["🎉", "💖", "✨", "❤️"][Math.floor(Math.random() * 4)];
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 3000);
+  }
+}
+
+
