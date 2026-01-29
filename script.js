@@ -22,17 +22,15 @@ function startGame() {
 }
 
 function loadQuestion() {
-  const questionEl = document.getElementById("question");
+  const q = questions[currentQuestion];
+  document.getElementById("question").innerText = q.text;
   const buttons = document.querySelectorAll(".options button");
-
-  questionEl.innerText = questions[currentQuestion].text;
-  buttons[0].innerText = questions[currentQuestion].options[0];
-  buttons[1].innerText = questions[currentQuestion].options[1];
+  buttons[0].innerText = q.options[0];
+  buttons[1].innerText = q.options[1];
 }
 
 function nextQuestion() {
   currentQuestion++;
-
   if (currentQuestion < questions.length) {
     loadQuestion();
   } else {
@@ -50,6 +48,10 @@ function yesClicked() {
   document.getElementById("screen4").classList.remove("hidden");
   document.getElementById("song").play();
   launchConfetti();
+
+  setTimeout(() => {
+    document.getElementById("loveLine").classList.remove("hidden");
+  }, 4000);
 }
 
 function launchConfetti() {
@@ -61,10 +63,9 @@ function launchConfetti() {
     confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
     document.body.appendChild(confetti);
 
-    setTimeout(() => {
-      confetti.remove();
-    }, 3000);
+    setTimeout(() => confetti.remove(), 3000);
   }
 }
+
 
 
