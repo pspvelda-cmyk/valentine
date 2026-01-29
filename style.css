@@ -1,0 +1,57 @@
+body {
+  font-family: 'Comic Sans MS', cursive;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("couple.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.screen {
+  margin-top: 120px;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  margin: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+}
+
+.options {
+  margin-top: 30px;
+}
+
+#errorMsg {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ffd6e0;
+}
+
+/* CONFETTI */
+.confetti {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall 3s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
